@@ -135,5 +135,5 @@ test:
 	$(eval include global_config/test.sh)
 
 .PHONY: preproduction
-preproduction: production-cluster
+preproduction:
 	$(eval include global_config/preproduction.sh)
