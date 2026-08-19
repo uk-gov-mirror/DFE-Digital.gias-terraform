@@ -1,0 +1,7 @@
+CONFIG=production
+ENVIRONMENT=production
+CONFIG_SHORT=pd
+AZURE_SUBSCRIPTION=s158-getinformationaboutschools-production
+AZURE_RESOURCE_PREFIX=s158p01
+ENABLE_KV_DIAGNOSTICS=true
+TERRAFORM_MODULES_TAG=stable
