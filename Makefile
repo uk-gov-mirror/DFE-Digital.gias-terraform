@@ -62,9 +62,6 @@ arm-deployment: composed-variables set-azure-account
 		-l "${REGION}" --template-uri "https://raw.githubusercontent.com/DFE-Digital/tra-shared-services/${ARM_TEMPLATE_TAG}/azure/resourcedeploy.json" \
 		--parameters "resourceGroupName=${RESOURCE_GROUP_NAME}" 'templateVersion=${ARM_TEMPLATE_TAG}' 'tags=${RG_TAGS}' \
 		"tfStorageAccountName=${STORAGE_ACCOUNT_NAME}" "tfStorageContainerName=terraform-state" \
-		${KV_ARG} \
-		${KV_DIAG_ARG} \
-		"enableKVPurgeProtection=${KV_PURGE_PROTECTION}" \
 		${WHAT_IF}
 
 deploy-arm-resources: arm-deployment ## Validate ARM resource deployment. Usage: make domains validate-arm-resources
@@ -134,6 +131,22 @@ development2:
 test:
 	$(eval include global_config/test.sh)
 
+.PHONY: test2
+test2:
+	$(eval include global_config/test2.sh)
+
 .PHONY: preproduction
 preproduction:
 	$(eval include global_config/preproduction.sh)
+
+.PHONY: preproduction2
+preproduction2:
+	$(eval include global_config/preproduction2.sh)
+
+.PHONY: production
+production:
+	$(eval include global_config/production.sh)
+
+.PHONY: production2
+production2:
+	$(eval include global_config/production2.sh)
