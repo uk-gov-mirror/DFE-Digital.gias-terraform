@@ -245,6 +245,9 @@ module "gias_web_app" {
       }
     })
   }
+
+  environment_app_settings = var.environment_app_settings
+
   sticky_app_settings = [
     "AllowedForwardedHostNames",
     "api:Password",
@@ -292,6 +295,7 @@ module "gias_web_app" {
     gias-dev-sandbox1        = {}
     gias-dev-sandbox2        = {}
   }
+  environment_slots        = var.environment_slots
 }
 
 module "dfe-signinsimulator" {
